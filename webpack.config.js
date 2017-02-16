@@ -2,7 +2,7 @@ const path = require('path');
 const merge = require('webpack-merge');
 const validate = require('webpack-validator');
 
-const parts = require('./webpack.parts');
+const parts = require('./libs/parts');
 
 const TARGET = process.env.npm_lifecycle_event;
 const ENABLE_POLLING = process.env.ENABLE_POLLING;
@@ -28,6 +28,11 @@ const common = merge(
     output: {
       path: PATHS.build,
       filename: '[name].js'
+      // TODO: Set publicPath to match your GitHub project name
+      // E.g., '/kanban-demo/'. Webpack will alter asset paths
+      // based on this. You can even use an absolute path here
+      // or even point to a CDN.
+      //publicPath: ''
     },
     resolve: {
       extensions: ['', '.js', '.jsx']
@@ -55,11 +60,6 @@ switch(TARGET) {
           style: PATHS.style
         },
         output: {
-          // TODO: Set publicPath to match your GitHub project name
-          // E.g., '/kanban-demo/'. Webpack will alter asset paths
-          // based on this. You can even use an absolute path here
-          // or even point to a CDN.
-          //publicPath: ''
           path: PATHS.build,
           filename: '[name].[chunkhash].js',
           chunkFilename: '[chunkhash].js'

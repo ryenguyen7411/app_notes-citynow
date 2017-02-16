@@ -30,8 +30,7 @@ module.exports = function karmaConfig (config) {
       // Reference: http://webpack.github.io/docs/testing.html
       // Reference: https://github.com/webpack/karma-webpack
       // Convert files with webpack and load sourcemaps
-      'tests/**/*_test.*': ['webpack', 'sourcemap'],
-      'app/**/*.*': 'coverage'
+      'tests/**/*_test.*': ['webpack', 'sourcemap']
     },
 
     browsers: [
@@ -43,23 +42,8 @@ module.exports = function karmaConfig (config) {
 
     // Configure code coverage reporter
     coverageReporter: {
-      reporters: [
-          // generates ./coverage/lcov.info
-          {
-            type: 'lcovonly',
-            subdir: '.'
-          },
-          // generates ./coverage/coverage-final.json
-          {
-            type: 'json',
-            subdir: '.'
-          },
-          // generates ./coverage/index.html
-          {
-            type: 'html',
-            subdir: '.'
-          }
-      ]
+      dir: 'coverage/',
+      type: 'html'
     },
 
     // Test webpack config
