@@ -51,11 +51,12 @@ describe('LaneStore', () => {
             lane
         });
 
-        const lane_created = alt.stores.LaneStore.getState().lanes[0];
+        const store = alt.stores.LaneStore;
+        expect(store.getState().lanes.length).toEqual(1);
 
+        const lane_created = alt.stores.LaneStore.getState().lanes[0];
         LaneActions.delete(lane_created.id);
 
-        const state = alt.stores.LaneStore.getState();
-        expect(state.lanes.length).toEqual(0);
+        expect(store.getState().lanes.length).toEqual(0);
     })
 })
