@@ -1,5 +1,5 @@
 // Reference: http://karma-runner.github.io/0.13/config/configuration-file.html
-module.exports = function karmaConfig (config) {
+module.exports = function karmaConfig(config) {
   config.set({
     frameworks: [
       // Reference: https://github.com/karma-runner/karma-mocha
@@ -8,13 +8,7 @@ module.exports = function karmaConfig (config) {
     ],
 
     reporters: [
-      // Reference: https://github.com/mlex/karma-spec-reporter
-      // Set reporter to print detailed results to console
       'spec',
-
-      // Reference: https://github.com/karma-runner/karma-coverage
-      // Output code coverage files
-      'coverage'
     ],
 
     files: [
@@ -34,8 +28,7 @@ module.exports = function karmaConfig (config) {
     },
 
     browsers: [
-      // Run tests using PhantomJS
-      'PhantomJS'
+      'Chrome'
     ],
 
     singleRun: true,
@@ -55,4 +48,3 @@ module.exports = function karmaConfig (config) {
     }
   });
 };
-
